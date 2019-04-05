@@ -1,0 +1,81 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, canvas, embed, output, ruby, summary, time, mark, audio, video 
+{
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    outline: 0;
+    margin: 0;
+    padding: 0;
+    font-family: "ProximaNova",Arial,sans-serif;
+}
+
+.container
+{
+	
+    width: 750px;
+    margin:0 auto;
+    padding: 10px 15px; 
+    border: 1px solid #e0e0e0;
+    height:525px;
+}
+::placeholder {
+  color: #000;
+  opacity: 1; /* Firefox */
+  font-size:13px
+}
+
+/* sms history */
+
+.templateList
+{
+	
+	
+    
+}
+.messageHistory
+{
+	padding: 18px 1px 3px;
+    border-bottom: 2px solid rgb(37, 177, 241);
+    color:#000;
+}
+.ul_li_list
+{
+	margin-top:25px;
+	border-top:1px solid #e0e0e0; 
+	border-bottom:1px solid #e0e0e0;
+	border-right:0px solid;
+	border-left:0px solid;
+	font-size: 14px; 
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  cursor: pointer;
+  
+}
+
+li {
+  float: left;
+}
+
+li  {
+  display: block;
+  color:#aba9a9;
+  text-align: center;
+  padding: 16px 30px;
+  text-decoration: none;
+}
+
+li :hover {
+  
+}
+.ul_li_list_records
+{
+	border-bottom:1px solid #e0e0e0;
+	border-right:0px solid;
+	border-left:0px solid; 	
+}
+
