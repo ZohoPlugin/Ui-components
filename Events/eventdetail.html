@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Event Details</title>
+	<link rel="stylesheet" href="../events/css/event.css">
+	<link rel="stylesheet" href="../events/css/jquery.css">
+	<link rel="stylesheet" href="../events/css/jquery.timepicker.css">
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  	<script src="../events/js/jquery.js"></script>
+  	<script src="../events/js/jquery.timepicker.js"></script>
+
+
+</head>
+<body>
+
+
+	<div class="container">
+		<div class="eventDetails">
+			<span class="eventSectionTxt">Choose Calendar</span>
+			<div class="eventDetailsSection" id="">
+				<select id="selectcalendar">
+					<option value="Hawaii">Select Calendar</option>
+					<option value="Hawaii">Calendar 1</option>
+					<option value="Alaska">Calendar 2</option>
+				</select>
+			</div> 	
+		</div>
+
+
+		<div class="eventsList">
+			<div class="eventDateDetails">
+				<div class="eventDateDetails_date">
+				<p class="p_col"> Mon</p>
+				<p class="p_col_bold"> 24 </p>
+				<p class="p_col"> 11.00.am</p>
+				<p class="p_col_year"> Dec 2018</p>
+			</div>
+			</div>	
+			<div class="eventListsDetails">
+				<div class="eventDateDetails_date">
+					<p class="p_title"> Meeting title </p>
+					<p class="p_atten"> <span> Attendees :</span>  <span class="p_atten_mem"> David, </span> <span class="p_atten_mem"> John</span></p>
+					<p class="p_duration"> <span> Duration :</span>  <span class="p_duration"> 1Hr </span></p>
+				</div>	
+			</div>
+		</div>
+
+
+
+		<div class="eventsList">
+			<div class="eventDateDetails">
+				<div class="eventDateDetails_date">
+				<p class="p_col"> Tue</p>
+				<p class="p_col_bold"> 25 </p>
+				<p class="p_col"> 11.00.am</p>
+				<p class="p_col_year"> Dec 2018</p>
+			</div>
+			</div>	
+			<div class="eventListsDetails">
+				<div class="eventDateDetails_date">
+					<p class="p_title"> Meeting title </p>
+					<p class="p_atten"> <span> Attendees :</span>  <span class="p_atten_mem"> David, </span> <span class="p_atten_mem"> John</span></p>
+					<p class="p_duration"> <span> Duration :</span>  <span class="p_duration"> 1Hr </span></p>
+				</div>	
+			</div>
+		</div>
+
+
+		<div class="eventsList">
+			<div class="eventDateDetails">
+				<div class="eventDateDetails_date">
+				<p class="p_col"> Weds</p>
+				<p class="p_col_bold"> 26</p>
+				<p class="p_col"> 11.00.am</p>
+				<p class="p_col_year"> Dec 2018</p>
+			</div>
+			</div>	
+			<div class="eventListsDetails">
+				<div class="eventDateDetails_date">
+					<p class="p_title"> Meeting title </p>
+					<p class="p_atten"> <span> Attendees :</span>  <span class="p_atten_mem"> David, </span> <span class="p_atten_mem"> John</span></p>
+					<p class="p_duration"> <span> Duration :</span>  <span class="p_duration"> 1Hr </span></p>
+				</div>	
+			</div>
+		</div>
+
+
+		<div class="eventsList">
+			<div class="eventDateDetails">
+				<div class="eventDateDetails_date">
+				<p class="p_col"> Thu</p>
+				<p class="p_col_bold"> 27</p>
+				<p class="p_col"> 11.00.am</p>
+				<p class="p_col_year"> Dec 2018</p>
+			</div>
+			</div>	
+			<div class="eventListsDetails">
+				<div class="eventDateDetails_date">
+					<p class="p_title"> Meeting title </p>
+					<p class="p_atten"> <span> Attendees :</span>  <span class="p_atten_mem"> David, </span> <span class="p_atten_mem"> John</span></p>
+					<p class="p_duration"> <span> Duration :</span>  <span class="p_duration"> 1Hr </span></p>
+				</div>	
+			</div>
+		</div>
+
+
+
+		<div class="eventsList">
+			<div class="eventDateDetails">
+				<div class="eventDateDetails_date">
+				<p class="p_col"> Fri</p>
+				<p class="p_col_bold"> 28</p>
+				<p class="p_col"> 11.00.am</p>
+				<p class="p_col_year"> Dec 2018</p>
+			</div>
+			</div>	
+			<div class="eventListsDetails">
+				<div class="eventDateDetails_date">
+					<p class="p_title"> Meeting title </p>
+					<p class="p_atten"> <span> Attendees :</span>  <span class="p_atten_mem"> David, </span> <span class="p_atten_mem"> John</span></p>
+					<p class="p_duration"> <span> Duration :</span>  <span class="p_duration"> 1Hr </span></p>
+				</div>	
+			</div>
+		</div>
+
+
+	</div>	
+
+
+</body>
+
+<script type="text/javascript">
+		$(document).ready(function(){
+			console.log("===========================");
+			$(".endDate").hide();
+			$( "#datepicker" ).datepicker();
+			$('#timepicker').timepicker({ 'scrollDefault': 'now' });
+			$( "#endDate" ).datepicker();
+			$( "#time_zone" ).selectmenu();
+			$("#selectcalendar").selectmenu();
+				selectmenu( "menuWidget")
+        		.addClass( "overflow" );
+    			$( "#salutation" ).selectmenu();
+    			$( "#speed" ).selectmenu();
+			});
+			function enableSyncYes()
+		{
+			$("#enableNo").prop("checked", false);
+		}
+		function enableSyncNo()
+		{
+			$("#enableYes").prop("checked", false);
+		}
+		function enableSyncYes()
+		{
+			$("#enableNo").prop("checked", false);
+		}
+		function enableSyncNo()
+		{
+			$("#enableYes").prop("checked", false);
+		}
+		function hideSyncSchedulefn()
+		{
+			$(".endDate").hide();
+			
+		}
+		function showSyncSchedulefn()
+		{
+			$(".endDate").show();					
+		}
+		function datepickerfn()
+		{
+			alert("ok");
+    		$( "#datepicker" ).datepicker();
+  			
+		}
+
+	</script>
+
+</html>
