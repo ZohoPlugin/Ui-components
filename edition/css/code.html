@@ -1,0 +1,61 @@
+function getTableHeader(selectedModule)
+{
+	var tableHeader = "";
+	// if(selectedModule == "Contacts")
+	// {
+	// 	tableHeader = '<table id="list_id" class="list_record_view" border="0" style="width: 100%;text-align:left;" cellspacing="0" cellpadding="0"> <tr style="font-family:\'proxima_novalight\';"> <th width="5%" class="tableHdr"></th> <th width="15%" class="tableHdr">EDISON INFO NAME</th> <th width="15%" class="tableHdr">DOMAIN</th> <th  width="15%" class="tableHdr">EDISON ID</th> <th width="15%" class="tableHdr"></th> </tr></table>';
+	// }
+	// else if (selectedModule == "Deals")
+	// {
+	// 	tableHeader = '<table id="list_id" class="list_record_view" border="0" style="width: 100%;text-align:left;" cellspacing="0" cellpadding="0"> <tr style="font-family:\'proxima_novalight\';"> <th width="5%" class="tableHdr"></th> <th width="15%" class="tableHdr">EDISON INFO NAME</th> <th width="15%" class="tableHdr">DOMAIN</th> <th  width="15%" class="tableHdr">EDISON ID</th> <th width="15%" class="tableHdr"></th> </tr></table>';	
+	// }
+
+	if(selectedModule == "Contacts")
+	{
+		tableHeader = '<table id="" class="contact_table" border="0" style="width: 100%;text-align:left;" cellspacing="0" cellpadding="0"> <tr style="font-family:\'proxima_novalight\';"> <th width="15%" class="tableHdr">FIRST NAME</th> <th width="15%" class="tableHdr">LAST NAME</th> <th width="15%" class="tableHdr">ACCOUNT NAME</th> <th  width="15%" class="tableHdr">EMAIL</th> <th width="15%" class="tableHdr"></th> </tr></table>'
+		// tableHeader = '<div class="list_view_tbl_hdr"<table id="" class="contact_table" border="0" style="width: 100%;text-align:left;" cellspacing="0" cellpadding="0"> <tr style="font-family:\'proxima_novalight\';"> <th width="5%" class="tableHdr"></th> <th width="15%" class="tableHdr">EDISON INFO NAME</th> <th width="15%" class="tableHdr">DOMAIN</th> <th  width="15%" class="tableHdr">EDISON ID</th> <th width="15%" class="tableHdr"></th> </tr></table></div>';
+	}
+	else if (selectedModule == "Deals")
+	{
+		tableHeader = '<table id="" class="contact_table" border="0" style="width: 100%;text-align:left;" cellspacing="0" cellpadding="0"> <tr style="font-family:\'proxima_novalight\';"> <th width="15%" class="tableHdr">DEAL NAME</th> <th width="15%" class="tableHdr">ACCOUNT NAME</th> <th width="15%" class="tableHdr">STAGE</th> <th  width="15%" class="tableHdr">CLOSING DATE</th> <th width="15%" class="tableHdr"></th> </tr></table>';	
+	}
+	return tableHeader;
+}
+function changeModule()
+{
+	getSelectModules();
+	loadContent();
+}
+
+
+
+
+
+
+
+
+
+
+
+<div class="pop_Purchaces popup_container_size" style="display:none;">	
+		Purchaces
+		<div class="list">
+					<div class="list_right pop_contact">
+	                	<div class="fldtext_bg">
+	                		<label for="lastname" class="fldtext">Subject</label>
+	                	</div>
+	                	<div class="fldvalue_bg pR">
+	                		<input id="purch_subject" class="fldvalue"  name="popup_txt" type="text"/><span class="errorltname"></span>                	
+	                  </div>
+	            	</div>
+
+	            	<div class="list_right pop_contact">
+	                	<div class="fldtext_bg pop_contact_label">
+	                		<label for="lastname" class="fldtext">Vendor Name</label>
+	                	</div>
+	                	<div class="fldvalue_bg pR">
+	                		<input id="purch_vname" class="fldvalue"  name="popup_txt"type="text"/><span class="errorltname"></span>                	
+	                  </div>
+	            	</div>
+	            </div>
+	    </div>  

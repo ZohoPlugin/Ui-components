@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edision</title>
+	<!-- <script type="text/javascript" src="./lib/jquery-1.11.1.min.js"></script> -->
+	<script type="text/javascript" src="./lib/jquery-1.8.3.min.js"></script>
+   <script type="text/javascript" src= "./lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="./lib/jquery-ui.js"></script>
+	<link rel="stylesheet" href="/uber/css/jquery-ui.css">
+	<link rel="stylesheet" type="text/css" href="../newedison/css/edison.css">
+	<link rel="stylesheet" type="text/css" href="../newedison/css/font.css">
+	<!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script> -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" type="text/css"/>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
+
+</head>
+
+<script type="text/javascript">
+	var myArray = new Array();
+	var contactArray = new Array();
+	for (var i = 0; i< 200; i++)
+	{
+		var myobj = new Object();
+		myobj.edisonName = "ABCD" + i;
+		myobj.edisonLastName = "EFGH" + i;
+		myobj.edisonAccountName = "ABCDEFGH" + i;
+		myobj.edisonModule = "Contacts";
+		myobj.edisonEmailId = "987";
+		contactArray[i] = myobj;
+	}
+	var dealsArry = new Array();
+	for (var i = 0; i< 200; i++)
+	{
+		var myobj = new Object();
+		myobj.edisonName = "Deal" + i;
+		myobj.edisonAccountName = "Deals" +i;
+		myobj.edisonStage = "Stage" + i;
+		myobj.edisonClosingDate = "Stage" + i;
+		dealsArry[i] = myobj;
+
+	}
+	var purchaseArray = new Array();
+	for (var i = 0; i< 200; i++)
+	{
+		var myobj = new Object();
+		myobj.edisonName = "ABCD" + i;
+		myobj.edisonModule = "Leands";
+		myobj.edisonId = "987";
+		myArray[i] = myobj;
+
+	}
+	console.log("!!!!!!!!myArray.length!!!!!!!!"+myArray.length);
+	// console.log( typeof(JSONObj)+ "====obj ===="+ JSONObjStr);
+
+	var selectedModule = "";
+	var getModule ="";
+	$(document).ready(function() {
+		var winH = $(window).height();
+		$('.main_container').height(winH - 48);
+		$('.sucess_alert').hide();
+		$('#mail_filter').select2({placeholder:"Select"});
+		$('#filter_module').select2({placeholder:"Select"});
+		$('#deal_stage').select2({placeholder:"Select"});
+		$('#search_filter').select2({placeholder:"Select"});
+		$('#search_filter_purchase').select2({placeholder:"Select"});
+
+	
+		
+		$(".setting_div").show();
+		$(".filter_div").hide();
+		$(".addUsPopup").hide();
+		// updateRecord();
+		getSelectModules();
+		
+		//checkBoxFn();
+		$("#deal_cdate").datepicker();
+		$("#events_from_date").datepicker();
+                $("#events_to_date").datepicker();
+
+
+		$(".pop_Purchaces").hide();
+		$(".popup_deals").hide();	
+		$(".popup_contacts").hide();
+		$(".popup_bills").hide();
+		$(".popup_events").hide();
+		$(".popup_purchase").hide();
+
+		// noRecordFound();
+
+
+		$(".total_cont").text(myArray.length);
+	});
+
+
+	function showSettings()
+	{
+		$(".setting_div").show();
+		$(".filter_div").hide();
+		$(".settingName_sync").addClass("border_col");
+		$(".settingName_setting").removeClass("border_col");
+	}
+	function showFilter()
+	{
+		$(".setting_div").hide();
+		$(".filter_div").show();
+		$(".settingName_sync").removeClass("border_col");
+		$(".settingName_setting").addClass("border_col");
+	}	
+	var listcountFrom=0;
+	var listcountTo=20;
+	var loopcount= 20;
+	var arrayList = new Array();
+
+	function updateRecord()
+	{
+		myArray = contactArray;
+		if(listcountTo > myArray.length)
+		{
+			listcountTo = myArray.length
+		}
+		
+
+		for(i=0; i<listcountTo; i++)
+		{
+			var obj1 = myArray[i];
+			var getName = obj1.edisonName;
+			var getModule = obj1.edisonModule;
+			var edisonId = obj1.edisonId;
+			console.log("!!!!!!!!!getName!!!!!"+getName+"########getModule########"+getModule+"$$$$$$edisonId$$$$$$"+edisonId);
+			 $("#list_id").append(
+			'<tr id="">'+
+                  '<td width="5%" class="tablelist f_colr"><input  class="tbl_checkbox" type="checkbox" name="" onclick="getCheckBoxFn()"></td>'+
+                  '<td width="15%" class="tablelist f_colr">'+getName+'</td>'+
+                  '<td width="15%" class="tablelist">'+getModule+'</td>'+
+                  '<td width="15%" class="tablelist">'+edisonId+'</td>'+
+                  '<td width="15%" class="tablelist add_icon" onclick="displayPopup(selectedModule,myArray,this)",getSelectModules()">'+"add more"+ 
+                   '</td>'+
+              '</tr>');
+
+
+		}
+		console.log("!!!!!! obj lenght!!!!!!!!!!");
+		 $(".countTo").text(listcountTo);
+		  $(".from_count").text(listcountFrom+1);
+	}
+	function nextFn(moduleName)
+	{
+		$('.warring_alert').hide();
+		$(".windowFirger").removeClass('open-firger');
+		// var checkResult =$("input[type='checkbox']").is(":checked");
+		 // var checkResult = ($('.tbl_checkbox:checked').length >= 0) 
+		 /*
+		 var checkResult = $(".tbl_checkbox").is(":checked");
+		 console.log("======== checkResult =========="+checkResult);
+		 if (checkResult == true) 
+		 {
+		 	showWaringAlert();
+		 }*/
+		// if(myArray.length == myArray.length)
+		$("#list_id").html('');
+		console.log("======== next start listcountFrom=========="+listcountFrom);
+		console.log("======== next start listcountTo=========="+listcountTo);
+
+
+		listcountFrom = listcountTo;
+		listcountTo = listcountTo + loopcount;
+		if(listcountTo > myArray.length)
+		{
+			listcountTo = myArray.length
+		}
+		// for(j=listcountFrom; j<listcountTo; j++)
+		// {
+		// 	var nextobj= myArray[j];
+		// 	 $("#list_id").append(
+		// 	'<tr id="">'+
+  //                 '<td width="5%" class="tablelist f_colr"><input class="tbl_checkbox" type="checkbox" name="" onclick="getCheckBoxFn()"></td>'+
+  //                 '<td width="15%" class="tablelist f_colr">'+nextobj.edisonName+'</td>'+
+  //                 '<td width="15%" class="tablelist">'+nextobj.edisonModule+'</td>'+
+  //                 '<td width="15%" class="tablelist">'+nextobj.edisonId+'</td>'+
+  //                 '<td width="15%" class="tablelist">'+ 
+  //                  '</td>'+
+  //             '</tr>');
+
+		// }
+		loadContent(myArray, moduleName, listcountFrom, listcountTo);
+		if(listcountTo == myArray.length)
+		{
+			 $(".nxt_btn").prop('disabled', true);
+			 $(".previous_btn").prop('disabled', false);
+		}
+		$(".countTo").text(listcountTo);
+		$(".from_count").text(listcountFrom);
+		console.log("======== next end listcountFrom=========="+listcountFrom);
+		console.log("======== next end listcountTo=========="+listcountTo);
+	}
+	function previousFn( moduleName )
+	{
+		if(listcountFrom <=0)
+		{
+			return;	
+		}
+		listcountFrom = listcountFrom - loopcount;;
+		listcountTo = listcountTo - loopcount;
+		console.log("======== previous start listcountFrom=========="+listcountFrom);
+		console.log("======== previous start listcountTo=========="+listcountTo);
+		var reminder = listcountTo % loopcount;
+		if(reminder > 0)
+		{
+			console.log("======== previous reminder=========="+reminder);
+			listcountTo = (reminder + (loopcount - reminder));
+		}
+		console.log("======== previous reminder=========="+listcountTo);
+		console.log("======== previous start listcountFrom=========="+listcountFrom);
+		console.log("======== previous start listcountTo=========="+listcountTo);
+
+		// $("#list_id").html('');
+		// for(i=listcountFrom; i<listcountTo;  i++)
+		// {
+		// 	console.log("======== previous reminder inside for loop =========="+listcountTo);
+		//  	var previousObj = myArray[i];
+		//  	console.log("!!!!!!! previousObj!!!!!!!!!!"+JSON.stringify(previousObj));
+		//  	$("#list_id").append(
+		// 	'<tr id="">'+
+  //                 '<td width="5%" class="tablelist f_colr"><input class="tbl_checkbox" type="checkbox" name="" onclick="getCheckBoxFn()"></td>'+
+  //                 '<td width="15%" class="tablelist f_colr">'+previousObj.edisonName+'</td>'+
+  //                 '<td width="15%" class="tablelist">'+previousObj.edisonModule+'</td>'+
+  //                 '<td width="15%" class="tablelist">'+previousObj.edisonId+'</td>'+
+  //                 '<td width="15%" class="tablelist">'+ 
+  //                  '</td>'+
+  //             '</tr>');
+		// }
+		loadContent(myArray, moduleName, listcountFrom, listcountTo);
+		 $(".from_count").text(listcountFrom+1);
+		  $(".countTo").text(listcountTo);
+		if(listcountFrom == 0)
+		{
+			 $(".nxt_btn").prop('disabled', false);
+			 $(".previous_btn").prop('disabled', true);	
+		}
+		console.log("======== previous end listcountFrom=========="+listcountFrom);
+		console.log("======== previous end listcountTo=========="+listcountTo);		
+	}
+
+	function explode(){
+		$('.sucess_alert').hide();
+		$('switch_enable_alert').hide();
+		$(".switch_disable_alert").hide();
+	}
+
+	function startExplode(){
+	 setTimeout(explode, 2000);
+	}
+
+	function showAlertInfo()
+	{
+		$('.sucess_alert').show();
+		$('switch_enable_alert').show();
+		// startExplode();
+	}
+	function cancelDelete()
+	{
+  		$('.warring_alert').hide();
+  		$('.info_alert').hide();
+  	 	$(".windowFirger").removeClass('open-firger');
+	}
+	function showWaringAlert()
+	{
+
+		$(".windowFirger").addClass('open-firger');
+		$(".warring_alert").show();
+	}
+	function checkBoxFn()
+	{
+		console.log("calling...checkBoxFn.....");
+		var checkResult = $(".tbl_checkbox").is(":checked");
+		 console.log("======== checkResult =========="+checkResult);
+		 
+		  if (checkResult == false) 
+		 {
+		 	$(".filter_addmore_btn").attr("disabled", true);
+		 	$(".filter_addmore_btn").removeClass('addopacity');
+		 	nextFn();
+		 }
+		else if (checkResult == true) 
+		 {
+		 	$(".filter_addmore_btn").attr("disabled", false);
+			$(".filter_addmore_btn").addClass('addopacity');
+		 	 showWaringAlert();
+		 }
+		  
+
+	}
+
+	function getCheckBoxFn()
+	{
+		console.log("calling...checkBoxFn.....");
+		var checkResult = $(".tbl_checkbox").is(":checked");
+		 console.log("======== checkResult =========="+checkResult);
+		 
+		  if (checkResult == false) 
+		 {
+		 	$(".filter_addmore_btn").attr("disabled", true);
+		 	$(".filter_addmore_btn").removeClass('addopacity');
+		 	
+		 }
+		else if (checkResult == true) 
+		 {
+		 	$(".filter_addmore_btn").attr("disabled", false);
+			$(".filter_addmore_btn").addClass('addopacity');
+		 	
+		 }
+		  
+
+	}
+function enableDisableEmail(t)
+{
+	
+		 var id = $(t).attr('id');
+		 var getSwitchvalID = $(t).is(':checked');
+		 var switchValue = $(t).val();
+		 console.log("!!!!!!!! switch id!!!!!!!"+id +"============ getSwitchvalID============"+getSwitchvalID+"==========switchValue=========="+switchValue);
+		 if(getSwitchvalID == true)
+		 {
+		 	startExplode();
+		 	$(".switch_enable_alert").show();
+		 	$("#alt_txt").text(switchValue+"  has been enabled");
+		 }
+		 if(getSwitchvalID == false)
+		 {
+		 	startExplode();
+		 	$(".switch_disable_alert").show();
+		 	$("#alt_txt_disable").text(switchValue+"  has been disabled");
+		 }
+		 
+
+	
+}
+function displayPopup(Module,dataObj,t)
+{
+
+	var row_id = (t.parent().attr('id'));
+	console.log("!!!!!!!!!!!!!!!!!!!!!!!! get row id  !!!!!!!!!!!!!!!!!!"+row_id);
+	$(".windowFirger").addClass('open-firger');
+	$(".addUsPopup").show();
+	if(Module == "Contacts")
+	{
+		var dataObject = dataObj[row_id];
+		var obj = JSON.stringify(dataObject);
+		console.log("!!!!!!!!!!!!!!!!!!!!!!!!displayPopup dataObj obj !!!!!!!!!!!!!!!!!!"+obj);
+		var contact_lastname = dataObject.edisonName;
+		console.log("===========================contact_lastname!!!!!!!!!!!!!!!!!!"+contact_lastname);
+		$("#cont_id").val(contact_lastname);
+		$(".popup_deals").hide();
+		$(".popup_bills").hide();
+		$(".popup_events").hide();
+		$(".popup_purchase").hide();
+		$(".popup_contacts").show();
+	}
+	if(Module == "Deals")	
+	{
+		var dataObject = dataObj[row_id];
+		var obj = JSON.stringify(dataObject);
+		console.log("!!!!!!!!!!!!!!!!!!!!!!!!displayPopup dataObj obj !!!!!!!!!!!!!!!!!!"+obj);
+		var contact_lastname = dataObject.edisonName;
+		$("#deal_Name").val(contact_lastname);
+		$("#deal_acc_name").val(contact_lastname);
+		$("#deal_cdate").val(contact_lastname);
+		$("#deal_stage").val(contact_lastname);
+
+		$(".popup_purchase").hide();	
+		$(".popup_contacts").hide();
+		$(".popup_events").hide();
+		$(".popup_contacts").hide();
+		$(".popup_deals").show();
+	}
+	if(Module == "Bills")
+	{
+		$(".popup_deals").hide();
+		$(".popup_purchase").hide();	
+		$(".popup_contacts").hide();
+		$(".popup_events").hide();
+		$(".popup_bills").show();
+	}	
+	if(Module == "Events")
+	{
+		$(".popup_deals").hide();
+		$(".popup_bills").hide();
+		$(".popup_purchase").hide();	
+		$(".popup_contacts").hide();
+		$(".popup_events").show();
+	}	
+	if(Module == "Purchase")
+	{
+		$(".popup_deals").hide();
+		$(".popup_bills").hide();
+		$(".popup_events").hide();
+		$(".popup_contacts").hide();
+		$(".popup_purchase").show();	
+	}	
+
+}
+function getSelectModules()
+{
+	getModule = document.getElementById("filter_module");
+	var result = getModule.options[getModule.selectedIndex].value;
+	console.log("======== select result=================="+result);
+	if(result == "Contacts")
+	{
+		$(".pop_Purchaces").hide();
+		$(".popup_deals").hide();	
+		$(".popup_contacts").show();
+		myArray = contactArray;	
+	}
+	if(result=="Deals")
+	{
+		 $(".popup_deals").show();
+		 myArray = dealsArry;
+	}
+	if(result=="Purchases")
+	{
+		 $(".pop_Purchaces").show();
+		 myArray = purchaseArry;
+	}
+	listcountFrom=0;
+	listcountTo=20;
+	selectedModule = result;
+	console.log("!!!!!!!!!!!!!!!!!!!! selectedModule =================="+selectedModule); 
+	loadContent(myArray, selectedModule, listcountFrom, listcountTo);
+}
+
+
+function cancelPopup()
+{
+	$('.addUsPopup').hide();
+  	$('.info_alert').hide();
+  	$(".windowFirger").removeClass('open-firger');
+}
+function getPopUpValue()
+{
+	console.log("!!!!!!!!!!!!!!!!!!!! selectedModule  inside getPopUpValue =================="+selectedModule); 
+
+	if(selectedModule == "Contacts")
+	{
+		
+		var cont_value = $("#cont_id").val();
+		console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ check $$$$$$$$$$$$$$$$$$$$$$$$$"+cont_value);
+		
+		
+		if(cont_value != undefined || cont_value!="")
+		{
+			console.log(" $$$$$$$$$$$$$$$$$$$$$$$$$$$$$ if value true $$$$$$$$$$$$$$$$$$$$$$$$$"+cont_value);
+			
+
+
+		}
+		else{
+			console.log(" $$$$$$$$$$$$$$$$$$$$$$$$$$$$$ enter valid value $$$$$$$$$$$$$$$$$$$$$$$$$"+cont_value);
+		}
+
+	}
+	if(selectedModule=="Deals")
+	{
+		 $(".popup_deals").show();
+	}
+
+	if(selectedModule=="Bills")
+	{
+		 $(".popup_contacts").show();
+	}	
+	if(selectedModule=="Events")
+	{
+		 $(".popup_contacts").show();
+	}
+	
+	if(selectedModule=="Purchases")
+	{
+		 $(".pop_Purchaces").show();
+	}
+
+}
+ var rowID=0;
+function loadContent( dataArray, selectedModule, listcountFrom, listcountTo)
+{
+	if(selectedModule == "Deals")
+	{
+		var tableStr = getTableHeader(selectedModule);
+		$(".list_view_tbl_hdr").html(tableStr);
+		
+	}
+	else if (selectedModule == "Contacts")
+	{
+		var tableStr = getTableHeader(selectedModule);
+		$(".list_view_tbl_hdr").html(tableStr);
+		
+	}
+	$("#list_id").html(" ");
+	for(i=listcountFrom; i<listcountTo;  i++)
+	{
+		console.log("======== previous reminder inside for loop =========="+listcountTo);
+	 	var dataObject = dataArray[i];
+	 	console.log("!!!!!!! previousObj!!!!!!!!!!"+JSON.stringify(dataObject));
+	 	$("#list_id").append(
+		'<tr id='+i+'>'+
+              '<td width="15%" class="tablelist f_colr">'+dataObject.edisonName+'</td>'+
+              '<td width="15%" class="tablelist f_colr">'+dataObject.edisonLastName+'</td>'+
+              '<td width="15%" class="tablelist">'+dataObject.edisonAccountName+'</td>'+
+              '<td width="15%" class="tablelist">'+dataObject.edisonEmailId+'</td>'+
+              '<td width="15%" class="tablelist add_icon" onclick="displayPopup(selectedModule,myArray,$(this))">'+  
+               '</td>'+
+          '</tr>');
+	}
+	console.log("!!!!!! obj lenght!!!!!!!!!!");
+		$(".countTo").text(listcountTo);
+		 $(".from_count").text(listcountFrom+1);
+}
+function getTableHeader(selectedModule)
+{
+	var tableHeader = "";
+	// if(selectedModule == "Contacts")
+	// {
+	// 	tableHeader = '<table id="list_id" class="list_record_view" border="0" style="width: 100%;text-align:left;" cellspacing="0" cellpadding="0"> <tr style="font-family:\'proxima_novalight\';"> <th width="5%" class="tableHdr"></th> <th width="15%" class="tableHdr">EDISON INFO NAME</th> <th width="15%" class="tableHdr">DOMAIN</th> <th  width="15%" class="tableHdr">EDISON ID</th> <th width="15%" class="tableHdr"></th> </tr></table>';
+	// }
+	// else if (selectedModule == "Deals")
+	// {
+	// 	tableHeader = '<table id="list_id" class="list_record_view" border="0" style="width: 100%;text-align:left;" cellspacing="0" cellpadding="0"> <tr style="font-family:\'proxima_novalight\';"> <th width="5%" class="tableHdr"></th> <th width="15%" class="tableHdr">EDISON INFO NAME</th> <th width="15%" class="tableHdr">DOMAIN</th> <th  width="15%" class="tableHdr">EDISON ID</th> <th width="15%" class="tableHdr"></th> </tr></table>';	
+	// }
+
+	if(selectedModule == "Contacts")
+	{
+		tableHeader = '<table id="" class="contact_table" border="0" style="width: 100%;text-align:left;" cellspacing="0" cellpadding="0"> <tr style="font-family:\'proxima_novalight\';"> <th width="15%" class="tableHdr">FIRST NAME</th> <th width="15%" class="tableHdr">LAST NAME</th> <th width="15%" class="tableHdr">ACCOUNT NAME</th> <th  width="15%" class="tableHdr">EMAIL</th> <th width="15%" class="tableHdr"></th> </tr></table>'
+		// tableHeader = '<div class="list_view_tbl_hdr"<table id="" class="contact_table" border="0" style="width: 100%;text-align:left;" cellspacing="0" cellpadding="0"> <tr style="font-family:\'proxima_novalight\';"> <th width="5%" class="tableHdr"></th> <th width="15%" class="tableHdr">EDISON INFO NAME</th> <th width="15%" class="tableHdr">DOMAIN</th> <th  width="15%" class="tableHdr">EDISON ID</th> <th width="15%" class="tableHdr"></th> </tr></table></div>';
+	}
+	else if (selectedModule == "Deals")
+	{
+		tableHeader = '<table id="" class="contact_table" border="0" style="width: 100%;text-align:left;" cellspacing="0" cellpadding="0"> <tr style="font-family:\'proxima_novalight\';"> <th width="15%" class="tableHdr">DEAL NAME</th> <th width="15%" class="tableHdr">ACCOUNT NAME</th> <th width="15%" class="tableHdr">STAGE</th> <th  width="15%" class="tableHdr">CLOSING DATE</th> <th width="15%" class="tableHdr"></th> </tr></table>';	
+	}
+	else if (selectedModule == "Bills")
+	{
+		tableHeader = '<table id="" class="contact_table" border="0" style="width: 100%;text-align:left;" cellspacing="0" cellpadding="0"> <tr style="font-family:\'proxima_novalight\';"> <th width="15%" class="tableHdr">DEAL NAME</th> <th width="15%" class="tableHdr">ACCOUNT NAME</th> <th width="15%" class="tableHdr">STAGE</th> <th  width="15%" class="tableHdr">CLOSING DATE</th> <th width="15%" class="tableHdr"></th> </tr></table>';	
+	}
+	else if (selectedModule == "Events")
+	{
+		tableHeader = '<table id="" class="contact_table" border="0" style="width: 100%;text-align:left;" cellspacing="0" cellpadding="0"> <tr style="font-family:\'proxima_novalight\';"> <th width="15%" class="tableHdr">DEAL NAME</th> <th width="15%" class="tableHdr">ACCOUNT NAME</th> <th width="15%" class="tableHdr">STAGE</th> <th  width="15%" class="tableHdr">CLOSING DATE</th> <th width="15%" class="tableHdr"></th> </tr></table>';	
+	}
+	else if (selectedModule == "Purchase")
+	{
+		tableHeader = '<table id="" class="contact_table" border="0" style="width: 100%;text-align:left;" cellspacing="0" cellpadding="0"> <tr style="font-family:\'proxima_novalight\';"> <th width="15%" class="tableHdr">DEAL NAME</th> <th width="15%" class="tableHdr">ACCOUNT NAME</th> <th width="15%" class="tableHdr">STAGE</th> <th  width="15%" class="tableHdr">CLOSING DATE</th> <th width="15%" class="tableHdr"></th> </tr></table>';	
+	}
+	return tableHeader;
+}
+function changeModule()
+{
+	getSelectModules();
+	loadContent();
+}
+
+function noRecordFound()
+{
+
+	$('.table_container').hide();
+	$('.navigtion_div').hide();
+	$('.no_record').show();
+
+
+}
+
+
+
+
+
+
+
+</script>
+
+<body>
+	<div class="headder">
+		<span> Extension Name</span>
+	</div>
+
+
+
+	<div class="switch_enable_alert sucess_alert" style="display: none;">
+            <span class="delete_btn" onclick="this.parentElement.style.display='none';">&times;</span> 
+            <strong id="alt_txt">Commission added sucessfully</strong> 
+  </div>
+  	<div class="switch_disable_alert warning_alert" style="display: none;">
+            <span class="delete_btn" onclick="this.parentElement.style.display='none';">&times;</span> 
+            <strong id="alt_txt_disable">Commission added sucessfully</strong> 
+  </div>
+
+
+	<div class="sucess_alert"  style="display:none;">
+            <span class="delete_btn" onclick="this.parentElement.style.display='none';">&times;</span> 
+            <strong>Record added sucessfully</strong> 
+  		</div>
+<div class="main_container"> 
+	<div class="settingTxt">
+			<div class="settingName" onclick="showSettings()">
+				<span class="settingName_sync border_col">Settings</span>  &nbsp; &nbsp; &nbsp;|&nbsp; &nbsp; &nbsp; 
+			</div> 
+			<div class="settingName " onclick="showFilter()">
+				<span class="settingName_setting">Filter</span>
+			</div>
+	</div> 
+
+
+		
+
+
+	<div class="setting_div con_pd"> 
+		<p>Account Info</p>
+		<div class="account_info"> 
+			<div class="info_details"> 
+				<div class="info_email">zohointership@gmail.com</div> 
+				<div class="info_switch"> 
+					<label class="switch">
+	  					<input  id="email_1" class="email_opc" type="checkbox" value="zohointership@gmail.com" onclick="enableDisableEmail(this) ">
+	  					<span class="slider round"></span>
+					</label>
+				</div>
+			</div>
+
+
+			<div class="info_details"> 
+				<div class="info_email">abc123@gmail.com </div> 
+				<div class="info_switch"> 
+					<label class="switch">
+	  					<input id="email_2" class="email_opc" type="checkbox" value="abc123@gmail.com"  onclick="enableDisableEmail(this)">
+	  					<span class="slider round"></span>
+					</label>
+				</div>
+			</div>
+
+			<div class="info_details"> 
+				<div class="info_email">dummy@gmail.com </div> 
+				<div class="info_switch"> 
+					<label class="switch">
+	  					<input id="email_3" class="email_opc" type="checkbox" value="dummy@gmail.com" onclick="enableDisableEmail(this)">
+	  					<span class="slider round"></span>
+					</label>
+				</div>
+			</div>
+
+		</div>
+			<div class="add_email_div"><button class="btn">Add Email Account</button> </div> 
+
+
+
+			<div class="select_module_div"> 
+				<div class="setting_div con_pd"> 
+					<p>Select Module to Sync</p>
+				</div>	
+				<div> 
+					<span class="module_select"> <input type="checkbox" name="" value="contacts"><span class="module_select_txt">Contacts</span></span>
+					<span class="module_select"><input type="checkbox" name="" value="deals"><span class="module_select_txt">Deals</span></span>
+				</div>
+				<div class="note_div">
+					<div class="note_info"><B>Note:</B> This is common for all account</div> 
+					<button class="btn_update">Update</button>
+				</div>
+			</div>
+
+
+
+
+	</div>
+
+	<div class="filter_div con_pd"> 
+		<div class="windowFirger"> </div>
+<div class="warring_alert" style="display:none;">
+  <div class="del_txt">Are you sure want to go next page</div>
+   <button class="cancel_btn"onclick="cancelDelete()">Cancel</button> <button class="cnf_btn"onclick="nextFn()">Confirm</button>
+</div>
+		<div class="filter_act"> 
+			<div class="filter_opction">
+				<span class="filter_act_txt"> Account</span> 
+				<div class="select_opc_div">
+					<select id="mail_filter"> 
+						<option>zohointership@gmail.com</option>
+						<option>abc123@gmail.com</option> 
+						<option>dummy@gmail.com</option> 
+					</select> 
+				</div>
+			</div>
+			<div class="filter_opction">
+				<span class="filter_act_txt" style="width:135px;">Module Type</span> 
+				<div class="select_opc_div">
+					<select id="filter_module" onchange="getSelectModules()"> 
+						<option>Contacts</option> 
+						<option>Deals</option>
+						<option>Bills</option> 
+						<option>Events</option>
+						<option>Purchase</option>
+					</select> 
+				</div>
+			</div>
+			<!-- <button class="filter_addmore_btn" disabled onclick="showAlertInfo()" >Add as a New Record</button> -->
+		</div>	
+
+		<div class="no_record" style="display:none;">
+            <strong id="no_txt">No Record available</strong> 
+  		</div>
+
+		<div class="table_container" style="display:block;"> 
+			
+			<div class="list_view_tbl_hdr">
+				<!--  <table  class="contact_table" border="0" style="width: 100%;text-align:left;" class="list_view_tbl" cellspacing="0" cellpadding="0"> 
+			      <tr style="font-family:'proxima_novalight';"> 
+			             <th width="5%" class="tableHdr"></th>
+			                  <th width="15%" class="tableHdr">EDISON INFO NAME</th>
+			                   <th width="15%" class="tableHdr">DOMAIN</th>
+			                   <th  width="15%" class="tableHdr">EDISON ID</th>
+			                   <th width="15%" class="tableHdr"></th>
+			              </tr>
+  				</table>  -->
+  		</div>
+  		<div style="width:100%; float:left; height:100%;overflow-y: scroll; padding-bottom: 20px;">
+            <table id="list_id" class="list_record_view" border="0" style="width: 100%;text-align:left;" cellspacing="0" cellpadding="0">  
+          </table>
+         </div> 
+		</div>
+
+
+
+
+			<div class="navigtion_div"> 
+         		<div class="dis_total_count"> <span class="totalcount_txt" >Total count:</span>&nbsp;&nbsp;<span class="total_cont"></span> </div>
+         	<div class="nav_div">
+         		<button class="previous_btn" onclick="previousFn()"></button>  <span class="list_count"> <span class="from_count"></span>&nbsp;to&nbsp;<span class="countTo">'+listcountTo+'</span> </span> 
+         		<button class="nxt_btn" onclick="checkBoxFn()"></button>
+         	</div>
+         	</div>
+	</div>
+  
+
+
+
+</div>	
+
+
+
+<div class="addUsPopup" style="display:none;">
+
+	<div class="popup_contacts popup_container_size" style="">	
+		<div class="popup_title"> 
+			 <span class="Asso_txt">Contacts</span>  	
+			</div>	
+		<div class="list">
+	            	<div class="list_right pop_contact">
+	                	<div class="fldtext_bg pop_contact_label">
+	                		<label for="lastname" class="fldtext">Last Name</label>
+	                	</div>
+	                	<div class="fldvalue_bg pR">
+	                		<input class="fldvalue" id="cont_id" name="popup_txt" type="text"/><span class="errorltname"></span>                	
+	                  </div>
+	            	</div>
+	            </div>
+	    </div>  
+
+
+
+	    <div class="popup_bills popup_container_size" style="display:none;">	
+		<div class="popup_title"> 
+			 <span class="Asso_txt">Bills</span>  	
+		</div>	
+
+
+			
+<!-- 
+				<div class="search_filter_div">
+					<span class="search_filter_span">Product</span>
+					<div class="search_select">
+						<select id="search_filter" onchange=""> 
+							<option>Contacts</option> 
+							<option>Deals</option>
+							<option>Bills</option> 
+							<option>Events</option>
+							<option>Purchase</option>
+						</select> 
+					</div>	
+				</div>
+ -->
+		
+
+		<div class="deal_list">
+
+
+
+			<div class="list">
+
+					<div class="search_filter_div">
+	                	<div class="search_filter_title">
+	                		<label for="search_filter" class="filter_txt">Product</label>
+	                	</div>
+	                	<div class="search_filter_select_opc fldvalue_bg pR">
+	                		<select id="search_filter" onchange=""> 
+							<option>Contacts</option> 
+							<option>Deals</option>
+							<option>Bills</option> 
+							<option>Events</option>
+							<option>Purchase</option>
+						</select> 	               	
+	                  </div>
+	            	</div>
+
+			</div>	
+
+			
+
+
+
+				<div class="list">
+	            	<div class="list_right pop_contact">
+	                	<div class="fldtext_bg">
+	                		<label for="lastname" class="fldtext">Subject</label>
+	                	</div>
+	                	<div class="fldvalue_bg pR">
+	                		<input id="bills_subj" class="fldvalue"  name="popup_txt" type="text"/><span class="errorltname"></span>                	
+	                  </div>
+	            	</div>
+
+	            	<div class="list_right pop_contact">
+	                	<div class="fldtext_bg">
+	                		<label for="lastname" class="fldtext">Vendor Name</label>
+	                	</div>
+	                	<div class="fldvalue_bg pR">
+	                		<input id="bills_vname" class="fldvalue" name="popup_txt" type="text"/><span class="errorltname"></span>                	
+	                  </div>
+	            	</div>
+	            </div>
+	         </div>
+	    </div>        
+
+
+	    <div class="popup_purchase popup_container_size" style="display:none;">	
+		<div class="popup_title"> 
+			 <span class="Asso_txt">Purchase</span>  	
+		</div>	
+
+		<div class="deal_list">
+
+			<div class="list">
+
+					<div class="search_filter_div">
+	                	<div class="search_filter_title">
+	                		<label for="search_filter" class="filter_txt">Product</label>
+	                	</div>
+	                	<div class="search_filter_select_opc fldvalue_bg pR">
+	                		<select id="search_filter_purchase" onchange=""> 
+							<option>Contacts</option> 
+							<option>Deals</option>
+							<option>Bills</option> 
+							<option>Events</option>
+							<option>Purchase</option>
+						</select> 	               	
+	                  </div>
+	            	</div>
+
+			</div>	
+
+
+				<div class="list">
+	            	<div class="list_right pop_contact">
+	                	<div class="fldtext_bg">
+	                		<label for="lastname" class="fldtext">Subject</label>
+	                	</div>
+	                	<div class="fldvalue_bg pR">
+	                		<input id="purchase_subj" class="fldvalue"  name="popup_txt" type="text"/><span class="errorltname"></span>                	
+	                  </div>
+	            	</div>
+
+	            	<div class="list_right pop_contact">
+	                	<div class="fldtext_bg">
+	                		<label for="lastname" class="fldtext">Vendor Name</label>
+	                	</div>
+	                	<div class="fldvalue_bg pR">
+	                		<input id="purchase_vname" class="fldvalue" name="popup_txt" type="text"/><span class="errorltname"></span>                	
+	                  </div>
+	            	</div>
+	            </div>
+	         </div>
+	    </div>        
+
+
+	    <div class="popup_events popup_container_size" style="display:none;">	
+		<div class="popup_title"> 
+			 <span class="Asso_txt">Events</span>  	
+		</div>	
+
+		<div class="deal_list">
+				<div class="list">
+	            	<div class="list_right pop_contact">
+	                	<div class="fldtext_bg">
+	                		<label for="lastname" class="fldtext">From Date</label>
+	                	</div>
+	                	<div class="fldvalue_bg pR">
+	                		<input id="events_from_date" class="fldvalue"  name="popup_txt" type="text"/><span class="errorltname"></span>                	
+	                  </div>
+	            	</div>
+
+	            	<div class="list_right pop_contact">
+	                	<div class="fldtext_bg">
+	                		<label for="lastname" class="fldtext">To Date</label>
+	                	</div>
+	                	<div class="fldvalue_bg pR">
+	                		<input id="events_to_date" class="fldvalue" name="popup_txt" type="text"/><span class="errorltname"></span>                	
+	                  </div>
+	            	</div>
+	            </div>
+	         </div>
+	    </div>        
+
+
+
+
+	   
+
+	    <div class="popup_deals popup_container_size" style="display:none;">	
+		<div class="popup_title"> 
+			 <span class="Asso_txt">Deals</span>  	
+		</div>	
+
+		<div class="deal_list">
+				<div class="list">
+	            	<div class="list_right pop_contact">
+	                	<div class="fldtext_bg">
+	                		<label for="lastname" class="fldtext">Deal Name</label>
+	                	</div>
+	                	<div class="fldvalue_bg pR">
+	                		<input id="deal_Name" class="fldvalue"  name="popup_txt" type="text"/><span class="errorltname"></span>                	
+	                  </div>
+	            	</div>
+
+	            	<div class="list_right pop_contact">
+	                	<div class="fldtext_bg">
+	                		<label for="lastname" class="fldtext">Account Name</label>
+	                	</div>
+	                	<div class="fldvalue_bg pR">
+	                		<input id="deal_acc_name" class="fldvalue" name="popup_txt" type="text"/><span class="errorltname"></span>                	
+	                  </div>
+	            	</div>
+	            </div>
+
+	            <div class="list">
+	            	<div class="list_right pop_contact">
+	                	<div class="fldtext_bg">
+	                		<label for="lastname" class="fldtext">Closing Date</label>
+	                	</div>
+	                	<div class="fldvalue_bg pR">
+	                		<input id="deal_cdate" class="fldvalue" name="popup_txt" type="text"/><span class="errorltname"></span>                	
+	                  </div>
+	            	</div>
+
+	            	<div class="list_right pop_contact">
+	                	<div class="fldtext_bg">
+	                		<label for="lastname" class="fldtext">Stage</label>
+	                	</div>
+	                	<div class="fldvalue_bg pR">
+	                		<!-- <input id="deal_stage" class="fldvalue" name="popup_txt" type="text"/><span class="errorltname"></span>                	 -->
+	                		<div>
+							<select id="deal_stage" onchange="getSelectModules()"> 
+								<option>Qualification</option> 
+								<option>Needs Analysis</option>
+								<option>Value Proposition</option>
+								<option>Id. Decision Makers</option>
+								<option>Proposal/Price Quote</option>
+							</select> 
+				</div>
+	                  </div>
+	            	</div>
+	            </div>
+	          </div>  
+
+	    </div>  
+
+
+
+
+
+	    <div>
+	    	
+  		 <button class="cancel_btn"onclick="cancelPopup()">Cancel</button> <button class="cnf_btn"onclick="getPopUpValue()">Submit</button>
+	</div>
+
+	    </div>
+
+</div>
+
+<script type="text/javascript">
+	
+
+
+
+</script>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
