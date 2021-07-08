@@ -1,0 +1,57 @@
+@font-face {
+	font-family:"LatoLight";
+	font-weight:300;
+	font-style:normal;
+	src:url("//webfonts.zohowebstatic.com/lato2light/font.eot");
+	src:url("//webfonts.zohowebstatic.com/lato2light/font.eot?#iefix") format("eot"),
+	    url("//webfonts.zohowebstatic.com/lato2light/font.woff2") format("woff2"),
+	    url("//webfonts.zohowebstatic.com/lato2light/font.woff") format("woff"),
+	    url("//webfonts.zohowebstatic.com/lato2light/font.ttf") format("truetype"),
+	    url("//webfonts.zohowebstatic.com/lato2light/font.svg#Lato2-Light") format("svg");}
+@font-face {
+   font-family:"LatoRegular";
+   font-weight:400;
+   font-style:normal;
+   src:url("//webfonts.zohowebstatic.com/latoregular/font.eot");
+   src:url("//webfonts.zohowebstatic.com/latoregular/font.eot?#iefix") format("eot"),
+       url("//webfonts.zohowebstatic.com/latoregular/font.woff2") format("woff2"),
+       url("//webfonts.zohowebstatic.com/latoregular/font.woff") format("woff"),
+       url("//webfonts.zohowebstatic.com/latoregular/font.ttf") format("truetype"),
+       url("//webfonts.zohowebstatic.com/latoregular/font.svg#Lato-Regular") format("svg");}
+@font-face {
+   font-family:"LatoSemibold";
+   font-weight:600;
+   font-style:normal;
+   src:url("//webfonts.zohowebstatic.com/lato2semibold/font.eot");
+   src:url("//webfonts.zohowebstatic.com/lato2semibold/font.eot?#iefix") format("eot"),
+       url("//webfonts.zohowebstatic.com/lato2semibold/font.woff2") format("woff2"),
+       url("//webfonts.zohowebstatic.com/lato2semibold/font.woff") format("woff"),
+       url("//webfonts.zohowebstatic.com/lato2semibold/font.ttf") format("truetype"),
+       url("//webfonts.zohowebstatic.com/lato2semibold/font.svg#Lato2-Semibold") format("svg");}
+@font-face {
+   font-family:"LatoBold";
+   font-weight:700;
+   font-style:normal;
+   src:url("//webfonts.zohowebstatic.com/lato2bold/font.eot");
+   src:url("//webfonts.zohowebstatic.com/lato2bold/font.eot?#iefix") format("eot"),
+       url("//webfonts.zohowebstatic.com/lato2bold/font.woff2") format("woff2"),
+       url("//webfonts.zohowebstatic.com/lato2bold/font.woff") format("woff"),
+       url("//webfonts.zohowebstatic.com/lato2bold/font.ttf") format("truetype"),
+       url("//webfonts.zohowebstatic.com/lato2bold/font.svg#Lato2-Bold") format("svg");}
+@font-face {
+   font-family:"LatoBlack";
+   font-weight:800;
+   font-style:normal;
+   src:url("//webfonts.zohowebstatic.com/lato2black/font.eot");
+   src:url("//webfonts.zohowebstatic.com/lato2black/font.eot?#iefix") format("eot"),
+       url("//webfonts.zohowebstatic.com/lato2black/font.woff2") format("woff2"),
+       url("//webfonts.zohowebstatic.com/lato2black/font.woff") format("woff"),
+       url("//webfonts.zohowebstatic.com/lato2black/font.ttf") format("truetype"),
+       url("//webfonts.zohowebstatic.com/lato2black/font.svg#Lato2-Black") format("svg");
+}
+
+font-family:LatoLight, sans-serif;
+font-family:LatoRegular, sans-serif;
+font-family:"LatoSemibold";
+font-family:LatoBold, sans-serif;
+font-family:LatoBlack, sans-serif;
