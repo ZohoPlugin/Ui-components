@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.6, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="114px"
+	 height="111px" viewBox="0 0 114 111" style="enable-background:new 0 0 114 111;" xml:space="preserve">
+<style type="text/css">
+	.st0{display:none;}
+	.st1{display:inline;}
+	.st2{fill:#E7EFF7;}
+	.st3{fill:#E0EEFC;}
+	.st4{fill:#F5F8FF;}
+	.st5{display:inline;fill:#FFB845;}
+	.st6{display:inline;fill:#48B1FF;}
+	.st7{fill:#3D8CE2;stroke:#2C71AF;stroke-width:3;stroke-miterlimit:10;}
+	.st8{fill:#FFFFFF;}
+	.st9{fill:#FFFFFF;stroke:#315D93;stroke-miterlimit:10;}
+	.st10{fill:#EF9797;}
+	.st11{fill:none;stroke:#315D93;stroke-miterlimit:10;}
+	.st12{fill:#939CAA;}
+	.st13{font-family:'MyriadPro-Regular';}
+	.st14{font-size:9.6585px;}
+</style>
+<g id="Layer_1">
+</g>
+<g id="Layer_2" class="st0">
+	<g class="st1">
+		<path class="st2" d="M121.56,56.14c-5.35,35.29-33.06,53.87-64.63,64.63C24,132,8,92-7.7,56.14
+			C-22.01,23.44,21.35-5.68,56.93-8.49C92.53-11.3,126.25,25.23,121.56,56.14z"/>
+	</g>
+</g>
+<g id="Layer_12">
+	<circle class="st3" cx="57.5" cy="56.35" r="49.5"/>
+</g>
+<g id="Layer_11">
+	<circle class="st4" cx="57.5" cy="56.35" r="42.66"/>
+</g>
+<g id="Layer_9" class="st0">
+	<circle class="st5" cx="4" cy="17" r="4"/>
+	<circle class="st5" cx="84.5" cy="91.5" r="2.5"/>
+	<circle class="st5" cx="88.5" cy="-6.5" r="2.5"/>
+	<circle class="st5" cx="94" cy="-4" r="1"/>
+	<circle class="st5" cx="112" cy="98" r="1"/>
+	<circle class="st6" cx="108.5" cy="93.5" r="1.5"/>
+	<circle class="st6" cx="15.5" cy="104.5" r="1.5"/>
+	<circle class="st6" cx="4.5" cy="24.5" r="1.5"/>
+</g>
+<g id="Layer_4">
+	<path class="st7" d="M71.66,84.12H40.93c-6.6,0-12-5.4-12-12V41.39c0-6.6,5.4-12,12-12h30.73c6.6,0,12,5.4,12,12v30.73
+		C83.66,78.72,78.26,84.12,71.66,84.12z"/>
+</g>
+<g id="Layer_5">
+	<path class="st8" d="M67.63,80.1H44.95c-6.6,0-12-5.4-12-12V45.41c0-6.6,5.4-12,12-12h22.68c6.6,0,12,5.4,12,12V68.1
+		C79.63,74.7,74.23,80.1,67.63,80.1z"/>
+</g>
+<g id="Layer_6">
+	<path class="st9" d="M64.89,69.63H48.5c-2.36,0-4.28-1.92-4.28-4.28v-16.4c0-2.36,1.92-4.28,4.28-4.28h16.4
+		c2.36,0,4.28,1.92,4.28,4.28v16.4C69.17,67.72,67.26,69.63,64.89,69.63z"/>
+</g>
+<g id="Layer_7">
+	<path class="st10" d="M68.37,55.15H45.02v-6.04c0-2,1.62-3.62,3.62-3.62h16.1c2,0,3.62,1.62,3.62,3.62V55.15z"/>
+</g>
+<g id="Layer_8">
+	<line class="st11" x1="51.46" y1="43.07" x2="51.46" y2="48.71"/>
+	<line class="st11" x1="61.93" y1="43.07" x2="61.93" y2="48.71"/>
+	<line class="st11" x1="68.37" y1="55.55" x2="45.02" y2="55.55"/>
+	<text transform="matrix(1 0 0 1 52.123 64.8096)" class="st12 st13 st14">25</text>
+</g>
+<g id="Layer_10">
+	<circle class="st8" cx="31.74" cy="66.01" r="1.21"/>
+	<circle class="st8" cx="80.04" cy="49.11" r="0.4"/>
+	<g id="Layer_3">
+		<path class="st8" d="M35.37,5.65c0,2-0.82,3.62-2.82,3.62c-2,0-4.43-1.62-4.43-3.62"/>
+		<circle class="st8" cx="47.84" cy="85.33" r="2.82"/>
+		<circle class="st8" cx="83.26" cy="69.23" r="2.01"/>
+		<circle class="st8" cx="41.8" cy="33.41" r="0.8"/>
+		<circle class="st8" cx="85.67" cy="40.26" r="2.01"/>
+	</g>
+</g>
+</svg>
