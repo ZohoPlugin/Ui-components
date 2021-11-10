@@ -1,0 +1,682 @@
+html, body, div, span, label,applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, canvas, embed, output, ruby, summary, time, mark, audio, video 
+{
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    outline: 0;
+    margin: 0;
+    padding: 0;
+   /*font-family:LatoRegular, sans-serif;*/
+   font-family:LatoLight, sans-serif;
+    /*font-family: 'Lato', sans-serif;*/
+    /*font-weight: lighter;*/
+}
+.flt
+{
+    float:left; 
+
+}
+.cursorType
+{
+    cursor:pointer;
+    padding: 1px 5px;
+    /*border: 1px solid;*/
+
+}
+.bor1px
+{
+    border:1px solid #e4e4e4;
+}
+.fnt11
+{
+    font-size:11px; 
+}
+.fnt13
+{
+    font-size:13px; 
+}
+
+.u7
+{
+    float:left;
+}
+.fltRight
+{
+    float: right;
+}
+.pdlf10
+{
+    padding: 0px 10px;
+    box-sizing:border-box;
+}
+.marT5
+{
+    margin-top:5px
+}
+.marT15
+{
+    margin-top:15px
+}
+.marT10
+{
+    margin-top: 10px;
+}
+.marL5
+{
+    margin-left:5px;
+}
+.mrRL10
+{
+    margin:0px 10px;
+}
+.marR10
+{
+    margin: 0px 10px;
+}
+.marL20
+{
+    margin-left:20px; 
+}
+.br_bt
+{
+    border-bottom: 1px solid #e4e4e4;
+}
+.bt_bt_blue
+{
+    border-bottom: 2px solid #3f51b5;
+}
+.fntColorBlue
+{
+    font-size: 24px;
+    color: #2b3b94;
+}
+.fntColorgray
+{
+     font-size: 14px;
+    color: #b5aeae;   
+}
+.fntBold
+{
+    font-weight:bold; 
+}
+.mandatoryField
+{
+    color:red !important;
+}
+.subContainer
+{
+    padding: 10px 10px;
+    box-sizing: border-box;
+    float: left;
+    width: 100%;
+
+}
+
+#selectDiv
+{
+    border: 1px solid #e4e4e4;
+}
+.buttonContainer
+{
+     float: left;
+    width: 100%;
+    margin-top:20px; 
+}
+.primary_btn {
+    background: #3b457f;
+    padding: 8px 26px;
+    border-radius: 3px;
+    box-shadow: none;
+    cursor: pointer;
+    color: #fff;
+    border: 1px solid;
+    outline: none;
+}
+.secondary_btn {
+    border: 1px solid #d0d4df!important;
+    padding: 8px 26px;
+    background: #fff;
+    color: #222833!important;
+    /*box-shadow: 0 -1px 0 0 #d0d4df inset!important;*/
+    /*background: transparent linear-gradient(#fcfdff,#eaeef5) 0 0 no-repeat padding-box!important;*/
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+
+/* ======= select =====*/
+
+.custom-select {
+    position: relative;
+    font-family: Arial;
+}
+.fieldDiv {
+    min-height: 40px;
+    padding: 10px 5px;
+    box-sizing: border-box;
+    font-size: 13px;
+    font-weight: lighter;
+}
+.select-items /* overwriting */
+{
+    max-height: 150px !important;
+    overflow: scroll !important;
+}
+.searchIconDiv
+{
+    float: left;
+    padding: 0px 8px 0px 0px;
+    /*border: 1px solid;*/
+    height:16px;
+    width: 16px;
+    margin-top: 11px;
+}
+.selectField
+{
+    margin:1px; 
+}
+#searchFieldId
+{
+    min-height: 40px;
+    outline: none;
+    border: 0;
+}
+.searchBoxContainer
+{
+    position:relative; 
+    display: flex;
+    min-height: 40px;
+    box-sizing: border-box;
+}
+.searchList
+{
+    position: absolute;
+    width: 100%;
+    border: 1px solid #f5f5f5;
+    /* height: 38px; */
+    top:43px;
+    background-color: #fff;
+    z-index: 9999;
+    box-shadow: 5px 10px 18px #c9c8c8;
+}
+ul li{
+   list-style-type: none; 
+   padding: 10px 10px;
+    /*background-color: #ebedee;*/
+    cursor: pointer;
+    font-size: 14px;
+}
+li:hover
+{
+    background-color: #ebedee;
+}
+.selectFieldParentDiv
+{
+    float: left;
+    border: 1px solid #d9d6d6;
+    border-radius: 42px;
+    margin: 3px;
+}
+.selectFieldFilter
+{
+    padding:8px;
+    display: inherit;
+    display: inline-block;
+    border-radius: 18px 0px 0px 18px;
+    color:#333; 
+     background-color: #f3f5f6;
+}
+.searchInput
+{   
+    padding: 8px 7px;
+    color:#333; 
+}
+.searchInputCancel
+{
+    padding: 8px 7px;
+    background-color: #f3f5f6;
+    cursor: pointer;
+    /* float: right; */
+    display: inline-block;
+    border-radius: 0px 18px 18px 1px;
+    color:#333; 
+}
+
+
+/* */ 
+
+
+.popup_widget {
+    border: 1px solid #b7b7b7;
+    margin: 0 auto;
+    width: 290px;
+    /*height: 40px;*/
+    position: fixed;
+    top: 3.5%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #66BA69;
+    border-radius: 3px;
+    
+}
+.errorPopup
+{
+
+    border: 1px solid #f3a29c;
+    margin: 0 auto;
+    width: 290px;
+    /*height: 40px;*/
+    position: fixed;
+    top: 3.5%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #efc4c1;
+    border-radius: 3px;
+}
+
+.errorIcon
+{
+    float: left;
+    width: 11%;
+    background-image: url(../img/google-calendar-icons-final.svg);
+    background-repeat: no-repeat;
+    height: 32px;
+    background-size: 255px;
+    z-index: 999;
+    background-position: -60px 6px;
+
+}
+
+
+
+
+.icon_success
+{
+
+    float: left;
+    width: 100%;
+    padding: 2px;
+    box-sizing:border-box; 
+}
+.popupIcon
+{
+    float: left;
+    width: 11%;
+    border-radius: 30px;
+    background-image: url(../img/tick-icon-white.svg);
+    background-repeat: no-repeat;
+    height: 32px;
+    background-size: 18px;
+    z-index: 999;
+    background-position: 6px 8px;
+    
+}
+.previousNavigation
+{
+         background-image: url(../images/right.png);
+    background-repeat: no-repeat;
+    height: 21px;
+    width: 11px;
+    background-size:18px;
+    z-index: 999;
+    background-position: 1px 1px;
+    transform: rotate(-182deg);
+}
+
+.nextNavigation
+{
+         background-image: url(../images/right.png);
+    background-repeat: no-repeat;
+    height:21px;
+     width: 11px;
+    background-size:18px;
+    z-index: 999;
+    background-position: 1px 3px;
+}
+.success_msg
+{
+    float: left;
+    background-color: #fff;
+    width: 85%;
+    text-align: center;
+    font-size: 12px;
+    padding: 5px;
+}
+.success_msg_txt
+{
+    float: left;
+    text-align: center;
+    /* height: 100%; */
+    padding: 4px 14px;
+}
+
+.totalHits
+{
+    float:left;
+    position: relative;
+    top: 11px;
+    font-size: 13px;
+    color: #28A267;
+}
+
+/* calendar css */
+
+.homeImageDiv
+{
+    height:150px;
+    width:150px;
+    margin: 0 auto;
+    margin-top: 80px;
+    background-image: url(../img/google-calendar.svg);
+    background-repeat: no-repeat;
+    background-size: 150px;
+    z-index: 999;
+    background-position: 6px 8px;
+}
+.showEventContainer
+{
+    float: left;
+    width: 100%;
+    /*margin-top: 30px;*/
+}
+.selectEventDiv
+{
+    /*height:30px;*/
+    width:100%;
+    float: left;
+    /*border:1px solid #0000ff; */
+}
+.selectEvent
+{
+    width:30%;
+}
+
+.eventContainer
+{
+    float:left;
+    width:100%;
+    /*padding: 10px;*/
+    border:1px solid #cbb0b0;
+    box-sizing: border-box;
+    margin-top: 10px;
+}
+
+.eventListDiv
+{
+    /*height:200px;*/
+    float:left;
+    width: 100%;
+    padding:10px;
+    box-sizing: border-box;
+    /*border:1px solid;*/
+    /*margin-top: 10px;*/
+}
+.eventDate
+{
+    width: 20%;
+    /*border: 1px solid #efefef;*/
+}
+.eventDetails
+{
+    width: 60%;
+    /*border: 1px solid #e6e6e6;*/
+    /*padding: 10px;*/
+}
+.eventEdit{
+    /*width: 25%;*/
+    /*border: 1px solid #8a9e9e;*/
+    float: right !important;
+    box-sizing: content-box;
+}
+
+.eventSpan
+{
+    float: left;
+    display: inline-block;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.icon
+{
+    float:left;
+    height:14px;
+    width:14px;
+    cursor:pointer;
+}
+
+/*  create Event  start */
+
+input
+{
+    width: 100%;
+    height:40px;
+    box-sizing: border-box;
+    outline: none;
+    border: 1px solid #efefef;
+    font-family: LatoLight, sans-serif;
+    font-size:12px; 
+}
+.createNewEventContainer
+{
+    float: left;
+    width: 100%;
+    padding:4px;
+    margin-top: 20px;
+    box-sizing: border-box;
+    border:2px solid #ececec; 
+
+}
+.eventsFieldsDiv
+{
+    float: left;
+    width: 100%;
+    padding: 10px;
+    /*border: 1px solid;*/
+    background-color: #fff;
+    box-sizing: border-box;
+}
+.createEventTxt
+{
+    float:left;
+    width:100%;
+}
+.eventTxt
+{
+
+}
+.calcelIcon
+{
+    cursor:pointer;
+}
+.fields
+{
+    float:left;
+    width: 100%;
+}
+.labelcss
+{
+    float:left;
+    width: 100%;
+    margin-bottom: 5px;
+    font-size: 13px;
+}
+.startDate
+{
+    float:left;
+    width: 49%;
+    height: 40px;
+}
+.endDate
+{
+    float:right;
+    width: 49%;
+}
+.chooseDateDiv
+{
+    float: left;
+    width: 100%;
+    margin-top: 15px;
+}
+.startDateTime
+{
+    float: left;
+    width: 100%;
+    height: 40px;
+}
+.endDateTime
+{
+    float: left;
+    width: 100%;
+    height: 40px;
+}
+.choosetimeDiv
+{
+    float: left;
+    width: 100%;
+    margin-top: 15px;
+     /*border: 1px solid;*/
+}
+.startTime
+{
+    
+    float:left;
+    width: 49%;
+
+}
+.endTime
+{
+    float:right;
+    width: 49%;
+}
+.startTimeDiv
+{
+    float: left;
+    width: 100%;
+    height:40px;
+    /*  border: 1px solid #efefef;*/
+}
+.locationDiv
+{
+    width: 100%;
+    float: left;
+    margin-top: 15px;
+}
+.locationDivLabel
+{
+
+}
+.locationInput
+{
+    float: left;
+    width: 100%;
+    height: 40px;
+    /*border: 1px solid #efefef;*/
+}
+
+.attendeeDiv
+{
+
+    width: 100%;
+    float: left;
+    margin-top: 15px;   
+}
+.attendeeInput
+{
+    float: left;
+    width: 100%;   
+}
+.notificationDiv
+{
+    float:left;
+    width: 100%;
+    margin-top: 15px;
+}
+.reminder
+{
+    float: left;
+    width: 40%;
+}
+.notification
+{
+    float:right;
+    width: 40%;
+
+}
+.duration
+{
+    float: left;
+    width:100%;
+}
+.notificationEnable
+{
+    float: left;
+    margin-top:10px;
+}
+.radioInput 
+{
+    width:13px !important;
+    height:13px !important;    
+}
+.radioInputlabel
+{
+    font-size: 13px !important;
+    position: relative;
+    top: -1px;
+}
+.duttonDiv
+{
+    float:left;
+    width: 100%;
+    margin-top: 15px;
+}
+.locationIcon
+{
+    background-image: url(../img/google-calendar-icons-final.svg);
+    background-repeat: no-repeat;
+    /* height: 14px; */
+    background-size: 230px;
+    z-index: 999;
+    background-position: -131px -23px;
+}
+.timeIcon
+{
+   background-image: url(../img/google-calendar-icons-final.svg);
+    background-repeat: no-repeat;
+    /* height: 14px; */
+    background-size: 230px;
+    z-index: 999;
+    background-position: -152px -23px;   
+}
+.editIcon
+{
+   background-image: url(../img/google-calendar-icons-final.svg);
+    background-repeat: no-repeat;
+    /* height: 14px; */
+    background-size: 230px;
+    z-index: 999;
+    background-position: -38px -23px;   
+}
+.deleteIcon
+{
+    background-image: url(../img/google-calendar-icons-final.svg);
+    background-repeat: no-repeat;
+    /* height: 14px; */
+    background-size: 230px;
+    z-index: 999;
+    background-position: -19px -23px;   
+}
+.calcelIcon
+{
+    background-image: url(../img/google-calendar-icons-final.svg);
+    background-repeat: no-repeat;
+    height: 14px;
+    width:14px;
+    background-size: 160px;
+    z-index: 999;
+    background-position:-89px 2px;     
+}
+
+/* create event end */
